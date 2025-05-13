@@ -9,6 +9,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Lock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 
 const loginSchema = z.object({
   email: z.string().email("Introduce un email válido"),
@@ -25,6 +26,7 @@ interface LoginDialogProps {
 const LoginDialog: React.FC<LoginDialogProps> = ({ isOpen, setIsOpen }) => {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
   
   const form = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -39,18 +41,30 @@ const LoginDialog: React.FC<LoginDialogProps> = ({ isOpen, setIsOpen }) => {
       setIsLoading(true);
       console.log("Login attempt with:", data);
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // For demo purposes, just show a success notification
-      toast({
-        title: "Inicio de sesión exitoso",
-        description: "Bienvenido de nuevo a Synca",
-      });
-      
-      // Close the dialog
-      setIsOpen(false);
-      form.reset();
+      // Check for specific credentials
+      if (data.email === "debora.vazquez@gmail.com" && data.password === "123456") {
+        // Store authentication state
+        localStorage.setItem("isAuthenticated", "true");
+        localStorage.setItem("userEmail", data.email);
+        
+        // Show success notification
+        toast({
+          title: "Inicio de sesión exitoso",
+          description: "Bienvenido de nuevo a Synca",
+        });
+        
+        // Close the dialog and redirect to dashboard
+        setIsOpen(false);
+        form.reset();
+        navigate("/dashboard");
+      } else {
+        // Show error for invalid credentials
+        toast({
+          title: "Error al iniciar sesión",
+          description: "Credenciales incorrectas",
+          variant: "destructive",
+        });
+      }
       
     } catch (error) {
       toast({
