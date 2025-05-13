@@ -22,7 +22,7 @@ const Hero = () => {
               <Button size="lg" className="btn-primary text-base md:text-lg">
                 Inicia tu Prueba Gratuita por 14 Días
               </Button>
-              <Button size="lg" variant="outline" className="bg-white/80 border-synca-200 text-synca-800 hover:bg-white text-base md:text-lg">
+              <Button size="lg" variant="outline" className="border-synca-200 text-synca-800 text-base md:text-lg">
                 Solicita una Demo Guiada
               </Button>
             </div>

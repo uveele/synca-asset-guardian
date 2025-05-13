@@ -51,7 +51,7 @@ const Navbar = () => {
           </a>
           <Button 
             variant="outline" 
-            className="border-synca-500 text-synca-700 hover:bg-synca-50"
+            className="border-synca-500 text-synca-700"
             onClick={() => setIsLoginOpen(true)}
           >
             <User size={18} className="mr-1" />
@@ -106,7 +106,7 @@ const Navbar = () => {
             <div className="flex flex-col space-y-2 pt-2">
               <Button 
                 variant="outline" 
-                className="border-synca-500 text-synca-700 hover:bg-synca-50 w-full"
+                className="border-synca-500 text-synca-700 w-full"
                 onClick={() => {
                   setIsMenuOpen(false);
                   setIsLoginOpen(true);
