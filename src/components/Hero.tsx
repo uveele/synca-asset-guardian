@@ -32,8 +32,8 @@ const Hero = () => {
             <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden p-2 lg:p-3 border border-synca-100">
               <div className="rounded-xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1531297484001-80022131f5a1"
-                  alt="Dashboard de Synca" 
+                  src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+                  alt="Persona trabajando con Synca" 
                   className="w-full h-auto object-cover"
                 />
               </div>

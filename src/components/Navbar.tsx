@@ -1,11 +1,13 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, User } from "lucide-react";
+import LoginDialog from "./LoginDialog";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +49,12 @@ const Navbar = () => {
           <a href="#pricing" className="text-foreground hover:text-synca-600 transition-colors">
             Precios
           </a>
-          <Button variant="outline" className="border-synca-500 text-synca-700 hover:bg-synca-50">
+          <Button 
+            variant="outline" 
+            className="border-synca-500 text-synca-700 hover:bg-synca-50"
+            onClick={() => setIsLoginOpen(true)}
+          >
+            <User size={18} className="mr-1" />
             Iniciar sesión
           </Button>
           <Button className="bg-synca-600 hover:bg-synca-700">
@@ -97,7 +104,15 @@ const Navbar = () => {
               Precios
             </a>
             <div className="flex flex-col space-y-2 pt-2">
-              <Button variant="outline" className="border-synca-500 text-synca-700 w-full">
+              <Button 
+                variant="outline" 
+                className="border-synca-500 text-synca-700 hover:bg-synca-50 w-full"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setIsLoginOpen(true);
+                }}
+              >
+                <User size={18} className="mr-1" />
                 Iniciar sesión
               </Button>
               <Button className="bg-synca-600 hover:bg-synca-700 w-full">
@@ -107,6 +122,9 @@ const Navbar = () => {
           </nav>
         </div>
       )}
+
+      {/* Login Dialog */}
+      <LoginDialog isOpen={isLoginOpen} setIsOpen={setIsLoginOpen} />
     </header>
   );
 };

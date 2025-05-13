@@ -21,8 +21,8 @@ const Index = () => {
         
         if (elementTop < windowHeight - 100) {
           element.classList.add("animated");
-          element.style.opacity = "1";
-          element.style.transform = "translateY(0)";
+          (element as HTMLElement).style.opacity = "1";
+          (element as HTMLElement).style.transform = "translateY(0)";
         }
       });
     };
