@@ -1,5 +1,6 @@
 
 import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -22,8 +23,14 @@ const Hero = () => {
               <Button size="lg" className="btn-primary text-base md:text-lg">
                 Inicia tu Prueba Gratuita por 14 Días
               </Button>
-              <Button size="lg" variant="outline" className="border-synca-200 text-synca-800 text-base md:text-lg">
-                Solicita una Demo Guiada
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-synca-200 text-synca-800 text-base md:text-lg"
+                onClick={() => window.open('https://calendly.com/debora-vazquez/30min', '_blank')}
+              >
+                <span>Solicita una Demo Guiada</span>
+                <ExternalLink size={16} className="ml-1" />
               </Button>
             </div>
           </div>

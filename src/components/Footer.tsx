@@ -1,6 +1,5 @@
-
 import { Button } from "@/components/ui/button";
-import { Mail, Globe, Clock, Shield } from "lucide-react";
+import { Mail, Globe, Clock, Shield, ExternalLink } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -18,8 +17,14 @@ const Footer = () => {
             <Button size="lg" className="btn-primary">
               Inicia tu Prueba Gratuita por 14 Días
             </Button>
-            <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
-              Solicita una Demo Guiada
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="bg-transparent border-white text-white hover:bg-white/10"
+              onClick={() => window.open('https://calendly.com/debora-vazquez/30min', '_blank')}
+            >
+              <span>Solicita una Demo Guiada</span>
+              <ExternalLink size={16} className="ml-1" />
             </Button>
           </div>
         </div>
